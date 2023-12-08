@@ -1,0 +1,279 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="FirstTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Arial Black"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="{DynamicResource FirstColor}"/>
+    </Style>
+
+    <Style x:Key="MainMenuTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Arial Black"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="Foreground" Value="{DynamicResource FirstColor}"/>
+    </Style>
+
+    <Style x:Key="FirstButtonStyle" TargetType="Button">
+        <Setter Property="FontFamily" Value="Arial Black"/>
+        <Setter Property="Foreground" Value="{DynamicResource FirstColor}"/>
+        <Setter Property="Background" Value="{DynamicResource ThirdColor}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource FirstColor}"/>
+    </Style>
+
+    <Style x:Key="InputFieldsStackStyle" TargetType="StackPanel">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+
+    <Style x:Key="InputFieldsLabelTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Arial Black"/>
+        <Setter Property="TextAlignment" Value="Right"/>
+        <Setter Property="Foreground" Value="{DynamicResource FirstColor}"/>
+        <Setter Property="Margin" Value="0,0,5,0"/>
+        <Setter Property="Width" Value="200"/>
+    </Style>
+
+    <Style x:Key="InputFieldsTextBoxStyle" TargetType="TextBox">
+        <Setter Property="FontFamily" Value="Arial Black"/>
+        <Setter Property="Foreground" Value="{DynamicResource FirstColor}"/>
+        <Setter Property="Background" Value="{DynamicResource FouthColor}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource FirstColor}"/>
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="Height" Value="20"/>
+    </Style>
+
+    <Style x:Key="InputFieldsButtonStyle" TargetType="Button">
+        <Setter Property="FontFamily" Value="Arial Black"/>
+        <Setter Property="Foreground" Value="{DynamicResource FirstColor}"/>
+        <Setter Property="Background" Value="{DynamicResource ThirdColor}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource FirstColor}"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Width" Value="100"/>
+    </Style>
+
+    <Style x:Key="MenuItemsStyle" TargetType="RadioButton">
+
+        <Setter Property="Template">
+            <Setter.Value>
+
+                <ControlTemplate TargetType="RadioButton">
+
+                    <Border x:Name="Container">
+                        <TextBlock x:Name="Text" Text="{TemplateBinding ContentStringFormat}" VerticalAlignment="Bottom" Margin="10,0,10,3" Style="{DynamicResource MainMenuTextStyle}"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Container" Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
+                                        <GradientStop Color="Transparent" Offset="0"/>
+                                        <GradientStop Color="{DynamicResource FirstColorRGB}" Offset="0.2"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="Text" Property="Foreground" Value="White"/>
+                        </Trigger>
+
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="Container" Property="Background" Value="Transparent"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+        
+    </Style>
+
+    <Style x:Key="WindowButtons" TargetType="Button">
+
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+
+    </Style>
+
+    <Style x:Key="ListViewShowClientStyle" TargetType="ListView">
+        <Setter Property="Background" Value="Transparent"/>
+
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate DataType="ListViewItem">
+                    <Border BorderBrush="{DynamicResource FirstColor}" BorderThickness="1" Background="{DynamicResource ThirdColor}" Padding="5">
+                        <StackPanel Orientation="Vertical">
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <TextBlock Text="FULL NAME:" Style="{DynamicResource FirstTextStyle}"/>
+                                <TextBlock Text="{Binding Path=FirstName}" Style="{DynamicResource FirstTextStyle}" Margin="5,0,5,0"/>
+                                <TextBlock Text="{Binding Path=LastName}" Style="{DynamicResource FirstTextStyle}"/>
+                                
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+
+                                <TextBlock Text="PHONE:" Style="{DynamicResource FirstTextStyle}"/>
+                                <TextBlock Text="{Binding Path=Phone}" Style="{DynamicResource FirstTextStyle}" Margin="5,0,5,0"/>
+
+                            </StackPanel>
+
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        
+    </Style>
+
+    <Style x:Key="ListViewShowRidesStyle" TargetType="ListView">
+        <Setter Property="Background" Value="Transparent"/>
+
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate DataType="ListViewItem">
+                    <Border BorderBrush="{DynamicResource FirstColor}" BorderThickness="1" Background="{DynamicResource ThirdColor}" Padding="5">
+                        <StackPanel Orientation="Vertical">
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <TextBlock Text="CLIENT:" Style="{DynamicResource FirstTextStyle}"/>
+                                <TextBlock Text="{Binding Path=ClientFirstName}" Style="{DynamicResource FirstTextStyle}" Margin="5,0,5,0"/>
+                                <TextBlock Text="{Binding Path=ClientLastName}" Style="{DynamicResource FirstTextStyle}"/>
+
+                            </StackPanel>
+                            
+                            <StackPanel Orientation="Horizontal">
+
+                                <TextBlock Text="DRIVER:" Style="{DynamicResource FirstTextStyle}"/>
+                                <TextBlock Text="{Binding Path=DriverFirstName}" Style="{DynamicResource FirstTextStyle}" Margin="5,0,5,0"/>
+                                <TextBlock Text="{Binding Path=DriverLastName}" Style="{DynamicResource FirstTextStyle}"/>
+
+                            </StackPanel>                            
+                            
+                            <StackPanel Orientation="Horizontal">
+
+                                <TextBlock Text="CAR:" Style="{DynamicResource FirstTextStyle}"/>
+                                <TextBlock Text="{Binding Path=CarBrand}" Style="{DynamicResource FirstTextStyle}" Margin="5,0,5,0"/>
+                                <TextBlock Text="{Binding Path=CarModel}" Style="{DynamicResource FirstTextStyle}"/>
+
+                            </StackPanel>                            
+                            
+                            <StackPanel Orientation="Horizontal">
+
+                                <TextBlock Text="TAXI CLASS:" Style="{DynamicResource FirstTextStyle}"/>
+                                <TextBlock Text="{Binding Path=TaxiClass}" Style="{DynamicResource FirstTextStyle}" Margin="5,0,5,0"/>
+
+                            </StackPanel>                            
+                            
+                            <StackPanel Orientation="Horizontal">
+
+                                <TextBlock Text="ROUTE:" Style="{DynamicResource FirstTextStyle}" Margin="0,0,5,0"/>
+                                <TextBlock Text="{Binding Path=Departure}" Style="{DynamicResource FirstTextStyle}"/>
+                                <TextBlock Text=" - " Style="{DynamicResource FirstTextStyle}"/>
+                                <TextBlock Text="{Binding Path=Destination}" Style="{DynamicResource FirstTextStyle}"/>
+
+                            </StackPanel>                            
+                            
+                            <StackPanel Orientation="Horizontal">
+
+                                <TextBlock Text="TRAVEL DISTANCE:" Style="{DynamicResource FirstTextStyle}"/>
+                                <TextBlock Text="{Binding Path=TravelDistance}" Style="{DynamicResource FirstTextStyle}" Margin="5,0,5,0"/>
+                                <TextBlock Text="KM" Style="{DynamicResource FirstTextStyle}"/>
+
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <TextBlock Text="TRAVEL PRICE:" Style="{DynamicResource FirstTextStyle}"/>
+                                <TextBlock Text="{Binding Path=TravelPrice}" Style="{DynamicResource FirstTextStyle}" Margin="5,0,5,0"/>
+                                <TextBlock Text="UAH" Style="{DynamicResource FirstTextStyle}"/>
+
+                            </StackPanel>
+
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+    
+    <Style x:Key="ListViewShowDriverCarStyle" TargetType="ListView">
+        <Setter Property="Background" Value="Transparent"/>
+
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate DataType="ListViewItem">
+                    <Border BorderBrush="{DynamicResource FirstColor}" BorderThickness="1" Background="{DynamicResource ThirdColor}" Padding="5">
+                        <StackPanel Orientation="Vertical">
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <TextBlock Text="DRIVER:" Style="{DynamicResource FirstTextStyle}"/>
+                                <TextBlock Text="{Binding Path=FirstName}" Style="{DynamicResource FirstTextStyle}" Margin="5,0,5,0"/>
+                                <TextBlock Text="{Binding Path=LastName}" Style="{DynamicResource FirstTextStyle}"/>
+
+                            </StackPanel>                             
+                            
+                            <StackPanel Orientation="Horizontal">
+
+                                <TextBlock Text="PHONE:" Style="{DynamicResource FirstTextStyle}"/>
+                                <TextBlock Text="{Binding Path=Phone}" Style="{DynamicResource FirstTextStyle}" Margin="5,0,5,0"/>
+
+                            </StackPanel>                            
+                            
+                            <StackPanel Orientation="Horizontal">
+
+                                <TextBlock Text="CAR INDEX:" Style="{DynamicResource FirstTextStyle}"/>
+                                <TextBlock Text="{Binding Path=CarIndex}" Style="{DynamicResource FirstTextStyle}" Margin="5,0,5,0"/>
+
+                            </StackPanel>                                   
+                            
+                            <StackPanel Orientation="Horizontal">
+
+                                <TextBlock Text="TAXI CLASS:" Style="{DynamicResource FirstTextStyle}"/>
+                                <TextBlock Text="{Binding Path=TaxiClass}" Style="{DynamicResource FirstTextStyle}" Margin="5,0,5,0"/>
+
+                            </StackPanel>                            
+                            
+                            <StackPanel Orientation="Horizontal">
+
+                                <TextBlock Text="CAR BRAND:" Style="{DynamicResource FirstTextStyle}"/>
+                                <TextBlock Text="{Binding Path=Brand}" Style="{DynamicResource FirstTextStyle}" Margin="5,0,5,0"/>
+
+                            </StackPanel>                                     
+                            
+                            <StackPanel Orientation="Horizontal">
+
+                                <TextBlock Text="CAR MODEL:" Style="{DynamicResource FirstTextStyle}"/>
+                                <TextBlock Text="{Binding Path=Model}" Style="{DynamicResource FirstTextStyle}" Margin="5,0,5,0"/>
+
+                            </StackPanel>                                        
+                            
+                            <StackPanel Orientation="Horizontal">
+
+                                <TextBlock Text="CAR NUMBER:" Style="{DynamicResource FirstTextStyle}" Margin="0,0,5,0"/>
+                                <TextBlock Text="{Binding Path=Number}" Style="{DynamicResource FirstTextStyle}"/>
+
+                            </StackPanel> 
+                            
+                            <StackPanel Orientation="Horizontal">
+
+                                <TextBlock Text="VIN:" Style="{DynamicResource FirstTextStyle}" Margin="0,0,5,0"/>
+                                <TextBlock Text="{Binding Path=VinCode}" Style="{DynamicResource FirstTextStyle}"/>
+
+                            </StackPanel>                            
+
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+</ResourceDictionary>

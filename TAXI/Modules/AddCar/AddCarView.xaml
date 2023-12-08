@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="TAXI.Modules.AddCar.AddCarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TAXI.Modules.AddCar"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="{DynamicResource FouthColor}">
+    <Grid>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <StackPanel Orientation="Horizontal" Style="{DynamicResource InputFieldsStackStyle}">
+                <TextBlock Width="150" Text="DRIVER FULLNAME" Style="{DynamicResource InputFieldsLabelTextStyle}" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding DriverFullName, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource InputFieldsTextBoxStyle}" Width="250"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Style="{DynamicResource InputFieldsStackStyle}">
+                <TextBlock Width="150" Text="DRIVER PHONE" Style="{DynamicResource InputFieldsLabelTextStyle}" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding DriverPhone, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource InputFieldsTextBoxStyle}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Style="{DynamicResource InputFieldsStackStyle}">
+                <TextBlock Width="100" Text="TAXI CLASS" Style="{DynamicResource InputFieldsLabelTextStyle}" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding ClassTitle, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource InputFieldsTextBoxStyle}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Style="{DynamicResource InputFieldsStackStyle}">
+                <TextBlock Width="100" Text="BRAND" Style="{DynamicResource InputFieldsLabelTextStyle}" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding Brand, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource InputFieldsTextBoxStyle}"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Style="{DynamicResource InputFieldsStackStyle}">
+                <TextBlock Width="100" Text="MODEL" Style="{DynamicResource InputFieldsLabelTextStyle}" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding Model, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource InputFieldsTextBoxStyle}"/>
+            </StackPanel>            
+            
+            <StackPanel Orientation="Horizontal" Style="{DynamicResource InputFieldsStackStyle}">
+                <TextBlock Width="100" Text="NUMBER" Style="{DynamicResource InputFieldsLabelTextStyle}" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding Number, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource InputFieldsTextBoxStyle}"/>
+            </StackPanel>            
+            
+            <StackPanel Orientation="Horizontal" Style="{DynamicResource InputFieldsStackStyle}">
+                <TextBlock Width="100" Text="VIN" Style="{DynamicResource InputFieldsLabelTextStyle}" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding VinCode, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource InputFieldsTextBoxStyle}"/>
+            </StackPanel>
+
+            <Button Command="{Binding AddCar}" Content="ADD CAR" Style="{DynamicResource InputFieldsButtonStyle}"/>
+        </StackPanel>
+            
+    </Grid>
+</UserControl>

@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="TAXI.Modules.AddTaxiClass.AddTaxiClassView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TAXI.Modules.AddTaxiClass"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="{DynamicResource FouthColor}">
+    <Grid>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <StackPanel Orientation="Horizontal" Style="{DynamicResource InputFieldsStackStyle}">
+                <TextBlock Width="100" Text="CLASS TITLE" Style="{DynamicResource InputFieldsLabelTextStyle}" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource InputFieldsTextBoxStyle}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Style="{DynamicResource InputFieldsStackStyle}">
+                <TextBlock Width="100" Text="PRICE PER KM" Style="{DynamicResource InputFieldsLabelTextStyle}" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding PricePerKilometer, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource InputFieldsTextBoxStyle}"/>
+            </StackPanel>
+
+            <Button Command="{Binding AddTaxiClass}" Content="ADD TAXI CLASS" Style="{DynamicResource InputFieldsButtonStyle}" Width="150"/>
+
+        </StackPanel>
+            
+    </Grid>
+</UserControl>

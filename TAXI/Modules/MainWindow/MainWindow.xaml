@@ -1,0 +1,96 @@
+﻿<Window x:Class="TAXI.Modules.MainWindow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TAXI"
+        mc:Ignorable="d"
+        Title="TAXI" Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize">
+    
+    <Grid
+        Margin="0">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Grid.Row="0" Fill="{DynamicResource ThirdColor}"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Path Data="{DynamicResource Logo}" Fill="{DynamicResource FirstColor}" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"/>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Center">
+
+                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    
+                    <TextBlock Grid.Row="0" Text="CREATE" VerticalAlignment="Center" Margin="0,5,0,0" Style="{DynamicResource FirstTextStyle}"/>
+
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Stretch" Margin="0,0,0,0">
+
+                        <RadioButton ContentStringFormat="RIDE" Command="{Binding NavigateToAddRide}" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemsStyle}" GroupName="MainMenu" IsChecked="False"/>
+                        <RadioButton ContentStringFormat="CLIENT" Command="{Binding NavigateToAddClient}" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemsStyle}" GroupName="MainMenu"/>
+                        <RadioButton ContentStringFormat="DRIVER" Command="{Binding NavigateToAddDriver}" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemsStyle}" GroupName="MainMenu"/>
+                        <RadioButton ContentStringFormat="CAR" Command="{Binding NavigateToAddCar}" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemsStyle}" GroupName="MainMenu"/>
+                        <RadioButton ContentStringFormat="TAXI CLASS" Command="{Binding NavigateToAddTaxiClass}" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemsStyle}" GroupName="MainMenu"/>
+
+                    </StackPanel>
+                    
+                </Grid>
+
+                <Border Width="1" Height="30" CornerRadius="1" Background="{StaticResource FirstColor}" Margin="10,0,10,0"/>
+
+                <Grid VerticalAlignment="Stretch">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="SEARCH" VerticalAlignment="Center" TextAlignment="Center" Margin="0,5,0,0"  Style="{DynamicResource FirstTextStyle}" IsHitTestVisible="False"/>
+
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Stretch" Margin="0,0,0,0">
+
+                        <RadioButton ContentStringFormat="CLIENT INFO" Command="{Binding NavigateToShowClient}" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemsStyle}" GroupName="MainMenu"/>
+                        <RadioButton ContentStringFormat="DRIVER AND CAR INFO" Command="{Binding NavigateToShowDriverCar}" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemsStyle}" GroupName="MainMenu"/>
+                        <RadioButton ContentStringFormat="RIDES LIST" Command="{Binding NavigateToShowRides}" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemsStyle}" GroupName="MainMenu"/>
+
+                    </StackPanel>
+
+                </Grid>
+
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="3">
+
+                <Button Command="{Binding Minimize}" Background="Transparent" BorderThickness="0" Height="15" Style="{DynamicResource WindowButtons}">
+                    <Button.Content>
+                        <Path Data="{DynamicResource Minimize}" Stretch="Uniform" Fill="{DynamicResource FirstColor}" Margin="1"/>
+                    </Button.Content>
+                </Button>
+
+                <Button Command="{Binding Close}" Height="15" Style="{DynamicResource WindowButtons}">
+                    <Button.Content>
+                        <Path Data="{DynamicResource Close}" Stretch="Uniform" Fill="{DynamicResource FirstColor}" Margin="1"/>
+                    </Button.Content>
+                </Button>
+
+            </StackPanel>
+
+        </Grid>
+        
+        <Border Grid.Row="0" BorderBrush="{DynamicResource FirstColor}" BorderThickness="0, 0, 0, 1"/>
+
+        <ContentControl Grid.Row="1" x:Name="ContentContainer" Background="Red"/>
+    </Grid>
+</Window>
